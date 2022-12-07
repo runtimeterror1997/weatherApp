@@ -7,7 +7,7 @@
  */
 
 import React, { useCallback, useState } from "react";
-import { ActivityIndicator, ImageBackground, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Image, ImageBackground, StyleSheet, Text, TextInput, View } from "react-native";
 import axios from "axios";
 import moment from "moment";
 
@@ -47,6 +47,8 @@ const App = () => {
     key: "49c3e623784be539863459124f3b963d",
   };
 
+  const weatherIcon = data?.weather?.[0]?.icon;
+
   const fetchData = useCallback(() => {
     setLoading(true);
     axios({
@@ -77,14 +79,14 @@ const App = () => {
           <View>
             <ActivityIndicator size={"large"} color={"#6495ED"} />
           </View>)}
-        {data !== "" && (
+        {data && (
           <View style={styles.infoView}>
             <View style={{ flexDirection: "row" }}>
               <Text style={{ fontSize: 28, color: "#fff", fontWeight: "bold" }}>
                 {`${data?.name}, ${data?.sys?.country}`}
               </Text>
               <Text style={{ fontSize: 18, color: "#fff", marginTop: 8 }}>
-                {`(${data?.coord?.lon}, ${data?.coord?.lat})`}
+                {`(${data?.coord?.lat}, ${data?.coord?.lon})`}
               </Text>
             </View>
             <Text style={{ fontSize: 14, color: "#fff", marginVertical: 10 }}>
@@ -92,10 +94,14 @@ const App = () => {
                 "MMM Do YYYY",
               )}
             </Text>
+            <View>
+              <Image source={{ uri: `https://openweathermap.org/img/w/${weatherIcon}.png` }}
+                     style={{ width: 70, height: 70 }} alt={"hello"} />
+            </View>
             <Text style={{
               fontSize: 20,
               color: "#fff",
-              marginVertical: 5,
+              marginBottom: 5,
               fontWeight: "600",
               textTransform: "capitalize",
             }}>
