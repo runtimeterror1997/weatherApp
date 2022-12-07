@@ -7,7 +7,7 @@
  */
 
 import React, { useCallback, useState } from "react";
-import { ActivityIndicator, Image, ImageBackground, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Image, ImageBackground, Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import axios from "axios";
 import moment from "moment";
 
@@ -20,12 +20,24 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
   },
-  textInput: {
+  iosTextInput: {
     height: 50,
     borderBottomWidth: 3,
     padding: 5,
     paddingVertical: 10,
-    marginVertical: 100,
+    marginVertical: 120,
+    marginHorizontal: 10,
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    fontSize: 19,
+    borderBottomColor: "#6495ED",
+  },
+  androidTextInput: {
+    height: 50,
+    borderBottomWidth: 3,
+    padding: 5,
+    paddingVertical: 10,
+    marginVertical: 70,
     marginHorizontal: 10,
     backgroundColor: "#fff",
     borderRadius: 16,
@@ -72,7 +84,7 @@ const App = () => {
             value={input}
             placeholderTextColor={"#000"}
             onSubmitEditing={fetchData}
-            style={styles.textInput}
+            style={Platform.OS === "ios" ? styles.iosTextInput : styles.androidTextInput}
           />
         </View>
         {loading && (
@@ -114,7 +126,7 @@ const App = () => {
               <Text style={{ fontSize: 18, color: "#fff", marginVertical: 5 }}>
                 Humidity:
               </Text>
-              <Text style={{ fontSize: 16, color: "#fff", marginVertical: 5, fontWeight: "600" }}>
+              <Text style={{ fontSize: 16, color: "#fff", marginVertical: 7, fontWeight: "600" }}>
                 {` ${Math.round(data?.main?.humidity)}`} ℃
               </Text>
             </View>
@@ -122,7 +134,7 @@ const App = () => {
               <Text style={{ fontSize: 18, color: "#fff", marginVertical: 5 }}>
                 Pressure:
               </Text>
-              <Text style={{ fontSize: 16, color: "#fff", marginVertical: 5, fontWeight: "600" }}>
+              <Text style={{ fontSize: 16, color: "#fff", marginVertical: 7, fontWeight: "600" }}>
                 {` ${Math.round(data?.main?.pressure)}`}
               </Text>
             </View>
