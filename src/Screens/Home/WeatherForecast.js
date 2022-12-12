@@ -150,20 +150,19 @@ function WeatherForecast({ navigation }) {
               city: input,
             })} style={{ alignItems: "center" }}>
               <View style={{
-                width: 250,
+                width: 290,
                 alignItems: "center",
-                padding: 1,
                 borderWidth: 1,
                 borderColor: "#fff",
                 borderRadius: 25,
-                backgroundColor: "#0000FF",
+                backgroundColor: "#363642",
                 paddingVertical: 8,
-                paddingHorizontal: 40,
+                paddingHorizontal: 10,
                 marginHorizontal: 10,
                 marginBottom: 20,
                 marginTop: 25,
               }}>
-                <Text style={{ color: "#fff", fontSize: 16, fontWeight:'bold' }}>View 5 Days Forecast for Every 3 Hour</Text>
+                <Text style={{ color: "#fff", fontSize: 14, fontWeight:'bold' }}>View 5 Days Forecast for Every 3 Hour</Text>
               </View>
             </TouchableOpacity>
           </>)}

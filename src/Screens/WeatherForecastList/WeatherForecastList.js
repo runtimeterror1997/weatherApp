@@ -97,11 +97,12 @@ function WeatherForecastList({ route, navigation }) {
         <View>
           <ActivityIndicator size={"large"} color={"#6495ED"} />
         </View>)}
+      {data?.city &&
       <View style={{ alignItems: "center" }}>
         <Text style={{ fontSize: 20, fontWeight: "bold", color: "#000" }}>
           {`${data?.city?.name}, ${data?.city?.country} (${data?.city?.coord?.lat}, ${data?.city?.coord?.lon})`}
         </Text>
-      </View>
+      </View>}
       {dataList.length > 0 && (
         <FlatList
           data={dataList}
@@ -118,7 +119,12 @@ function WeatherForecastList({ route, navigation }) {
             <View style={styles.weatherCard} key={item?.key}>
               <View style={{ alignItems: "center" }}>
                 <Text
-                  style={{ fontSize: 14, fontWeight: "bold", marginTop: 5, color: "#000" }}>{moment(item?.dt_txt).format(
+                  style={{
+                    fontSize: 14,
+                    fontWeight: "bold",
+                    marginTop: 5,
+                    color: "#000",
+                  }}>{moment(item?.dt_txt).format(
                   "LLLL",
                 )}</Text>
               </View>
@@ -131,7 +137,7 @@ function WeatherForecastList({ route, navigation }) {
                 <Text style={{
                   fontSize: 14,
                   color: "#000",
-                  fontWeight: 'bold',
+                  fontWeight: "bold",
                   textTransform: "capitalize",
                 }}>{`${item?.weather?.[0]?.main}, ${item?.weather?.[0]?.description}`}</Text>
                 <View style={{ paddingRight: 30 }}>
