@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     borderColor: "#797676",
     borderWidth: 1,
+    shadowRadius: 15,
     paddingVertical: 10,
     paddingHorizontal: 10,
-    borderRadius: 3,
+    borderRadius: 10,
   },
 });
 
@@ -94,7 +95,7 @@ function WeatherForecastList({ route, navigation }) {
         </TouchableOpacity>
       </View>
       {loading && (
-        <View>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginVertical: 200 }}>
           <ActivityIndicator size={"large"} color={"#6495ED"} />
         </View>)}
       {data?.city &&
