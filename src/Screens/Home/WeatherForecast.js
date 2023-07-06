@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import axios from "axios";
 import {
   ActivityIndicator,
-  Image,
   ImageBackground,
   Platform,
   StyleSheet,
@@ -12,6 +11,7 @@ import {
   View,
 } from "react-native";
 import moment from "moment";
+import { Center, Image, ScrollView } from "native-base";
 
 const styles = StyleSheet.create({
   root: {
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginHorizontal: 10,
     backgroundColor: "#fff",
-    borderRadius: 16,
-    fontSize: 19,
+    borderRadius: 10,
+    fontSize: 16,
     borderBottomColor: "#6495ED",
   },
   androidTextInput: {
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     marginTop: 70,
     marginHorizontal: 10,
     backgroundColor: "#fff",
-    borderRadius: 16,
-    fontSize: 19,
+    borderRadius: 10,
+    fontSize: 16,
     borderBottomColor: "#6495ED",
   },
   infoView: {
@@ -95,7 +95,7 @@ function WeatherForecast({ navigation }) {
             <ActivityIndicator size={"large"} color={"#6495ED"} />
           </View>)}
         {open && (
-          <>
+          <ScrollView>
             <View style={styles.infoView}>
               <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontSize: 28, color: "#fff", fontWeight: "bold" }}>
@@ -162,10 +162,11 @@ function WeatherForecast({ navigation }) {
                 marginBottom: 20,
                 marginTop: 25,
               }}>
-                <Text style={{ color: "#fff", fontSize: 14, fontWeight:'bold' }}>View 5 Days Forecast for Every 3 Hour</Text>
+                <Text style={{ color: "#fff", fontSize: 14, fontWeight: "bold" }}>View 5 Days Forecast for Every 3
+                  Hour</Text>
               </View>
             </TouchableOpacity>
-          </>)}
+          </ScrollView>)}
       </ImageBackground>
     </View>
   );
