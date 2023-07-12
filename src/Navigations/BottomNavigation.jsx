@@ -26,11 +26,11 @@ export const BottomNavigation = () => {
             iconName = focused ? "time-sharp" : "time-sharp";
           }
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={22} color={color}
+          return <Ionicons name={iconName} size={24} color={color}
                            style={{ alignItems: "center", marginRight: -14 }} />;
         },
         tabBarStyle: { backgroundColor: "#b6b4b4" },
-        tabBarActiveTintColor: "#3d3de1",
+        tabBarActiveTintColor: "#0b397e",
         tabBarInactiveTintColor: "#414040",
         tabBarHideOnKeyboard: true,
         tabBarIconStyle: { marginTop: 5 },

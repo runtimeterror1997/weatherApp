@@ -107,7 +107,7 @@ function WeatherForecast({ navigation }) {
               </View>
               <Text style={{ fontSize: 14, color: "#fff", marginVertical: 10 }}>
                 {moment(new Date()).format(
-                  "MMM Do YYYY",
+                  "LLLL",
                 )}
               </Text>
               <View>
@@ -143,7 +143,7 @@ function WeatherForecast({ navigation }) {
                 </Text>
               </View>
               <Text style={{ fontSize: 16, color: "#fff", marginVertical: 10 }}>
-                {`Min ${Math.round(data?.main?.temp_min)} ℃ / Max ${Math.round(data?.main?.temp_max)} ℃`}
+                {`${Math.round(data?.main?.temp_min)} ℃ / ${Math.round(data?.main?.temp_max)} ℃`}
               </Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("WeatherForecastList", {

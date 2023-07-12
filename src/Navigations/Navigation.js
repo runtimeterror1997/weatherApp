@@ -4,6 +4,7 @@ import WeatherForecast from "../Screens/Home/WeatherForecast";
 import WeatherForecastList from "../Screens/Home/WeatherForecastList/WeatherForecastList";
 import Alarm from "../Screens/Alarm/Alarm";
 import StopClock from "../Screens/StopClock/StopClock";
+import CreateAlarm from "../Screens/Alarm/CreateAlarm";
 
 const WeatherForecastStack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ export function AlarmStackScreen(props) {
   return (
     <AlarmStack.Navigator screenOptions={{ headerShown: false }}>
       <AlarmStack.Screen name="Alarm" component={Alarm} options={{ headerShown: false }} />
+      <AlarmStack.Screen name="CreateAlarm" component={CreateAlarm} options={{ headerShown: false }} />
     </AlarmStack.Navigator>
   );
 

@@ -99,11 +99,11 @@ function WeatherForecastList({ route, navigation }) {
           <ActivityIndicator size={"large"} color={"#6495ED"} />
         </View>)}
       {data?.city &&
-      <View style={{ alignItems: "center" }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#000" }}>
-          {`${data?.city?.name}, ${data?.city?.country} (${data?.city?.coord?.lat}, ${data?.city?.coord?.lon})`}
-        </Text>
-      </View>}
+        <View style={{ alignItems: "center" }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold", color: "#000" }}>
+            {`${data?.city?.name}, ${data?.city?.country} (${data?.city?.coord?.lat}, ${data?.city?.coord?.lon})`}
+          </Text>
+        </View>}
       {dataList.length > 0 && (
         <FlatList
           data={dataList}
@@ -165,7 +165,7 @@ function WeatherForecastList({ route, navigation }) {
                 <Text style={{
                   fontSize: 14,
                   color: "#000",
-                }}>{`Min ${Math.round(item?.main?.temp_min)} ℃ / Max ${Math.round(item?.main?.temp_max)} ℃`}</Text>
+                }}>{`${Math.round(item?.main?.temp_min)} ℃ /${Math.round(item?.main?.temp_max)} ℃`}</Text>
               </View>
             </View>
           )}
